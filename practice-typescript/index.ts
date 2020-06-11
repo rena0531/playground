@@ -135,3 +135,24 @@ let arr = <T extends any[]>(...rest: T) => {
 };
 
 arr(["a", 1]);
+
+//
+let a = 1;
+// ""| "hoge"
+const num = a && "hoge";
+
+//Taple
+let x: [string, number];
+x = ["hello", 3];
+//x = [10, "hello"]; error
+
+//Enum 列挙
+enum Color {
+  Red = 1,
+  Green,
+  Blue,
+}
+let c: Color = Color.Blue;
+console.log(c); //3
+
+
