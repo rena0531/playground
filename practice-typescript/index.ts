@@ -155,4 +155,33 @@ enum Color {
 let c: Color = Color.Blue;
 console.log(c); //3
 
+//undefined:意味がない void:無視して
 
+//! null undefined ではない
+
+//
+interface Fun {
+  (e: number): number;
+}
+
+function fa(callback: Fun, e: number) {
+  return callback(e);
+}
+
+const fun = (e) => 1 * e;
+const v = fa(fun, 1);
+
+//
+let arr1: (string | null)[] = [];
+
+//
+type F = {
+  foo: string;
+  bar: number;
+};
+const E: Record<keyof F, string> = { foo: "fafa", bar: "fafa" };
+
+//TがUに代入可能ならnever、そうでない場合T
+type Q = Exclude<string | number, boolean | string | number>
+
+//Interaction Type
