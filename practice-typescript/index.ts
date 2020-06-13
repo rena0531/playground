@@ -182,6 +182,38 @@ type F = {
 const E: Record<keyof F, string> = { foo: "fafa", bar: "fafa" };
 
 //TがUに代入可能ならnever、そうでない場合T
-type Q = Exclude<string | number, boolean | string | number>
+type Q = Exclude<string | number, boolean | string | number>;
 
 //Interaction Type
+type Dog = {
+  tail: Tail;
+  bark: () => void;
+};
+
+type Bird = {
+  wing: Wing;
+  fly: () => void;
+};
+
+type Kimera = Dog & Bird;
+
+//never
+let e: string & number = 0;
+
+//Nullable型
+let nullableString: string | null;
+
+//typeofは型推論と組み合わせて使う
+let myObject = { foo: "foo" };
+let anotherObject: typeof myObject = { foo: "" };
+
+//アサーション JSXでは非推奨
+let someValue: any = "this is astring";
+let strLength: number = (<string>someValue).length;
+
+//Widening Literal Types
+//再代入可能な変数に代入すると、Literal Typesではなくなってしまう
+//constオブジェクトも
+const wideningZero = 0; //const widening: 0
+let ZeroA = wideningZero; //let ZeroA: number
+
